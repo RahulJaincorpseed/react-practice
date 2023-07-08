@@ -7,6 +7,7 @@ function App() {
     <div className="App">
       <h1>Code Start...</h1>
       <Routes>
+        <Route path="/" element={<div>Home Page</div>}/>
         <Route path="/toast" element={<Toaster />}/>
       </Routes>
     </div>
