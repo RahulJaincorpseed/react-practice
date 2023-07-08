@@ -10,3 +10,19 @@ export const counterReducerExample = (state = initialState, action) => {
       return state
   }
 }
+
+const productState = [];
+
+export const productReducerExample = (state = productState, action) => {
+  switch (action.type) {
+    case "GETALLPRODUCTS":
+      let data = [...state, ...action.payload]
+      return data
+    case "GETSINGLEPRODUCT":
+      let itemData = action.payload;
+       return itemData;
+    default:
+      return state
+  }
+}
+
