@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router';
 import './App.css';
 import Toaster from './common/Toast/Toaster';
+import CounterExample from './Counter/CounterExample';
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <h1>Code Start...</h1>
       <Routes>
         <Route path="/toast" element={<Toaster />}/>
+        <Route path="/counter" element={<CounterExample />}/>
       </Routes>
     </div>
   );
