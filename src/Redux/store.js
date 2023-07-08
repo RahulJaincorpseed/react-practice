@@ -1,10 +1,11 @@
 
 import { applyMiddleware, combineReducers, createStore } from 'redux'
 import thunk from "redux-thunk";  
-import { counterReducerExample } from './Reducer/CounterReducer';
+import { counterReducerExample, productReducerExample } from './Reducer/CounterReducer';
 
 const rootReducer = combineReducers({
-    counterReducerExample
+    counterReducerExample,
+    productReducerExample
 })
 
 
