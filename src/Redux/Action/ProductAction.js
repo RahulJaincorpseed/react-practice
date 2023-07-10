@@ -12,3 +12,12 @@ export const singleProductAction = (data) =>{
     }
 }
 
+
+export const TableData = (data) =>{
+    return {
+        type: "ALLTABLEDATA",   
+        payload: data,
+
+    }
+}
+
