@@ -20,7 +20,22 @@ export const productReducerExample = (state = productState, action) => {
       return data
     case "GETSINGLEPRODUCT":
       let itemData = action.payload;
-       return itemData;
+       return itemData;   
+    default:
+      return state
+  }
+}
+
+
+const tableData = {
+  posts: [],
+
+};
+
+export const TableDataReducer = (state = tableData, action) =>{
+  switch (action.type) {
+    case "ALLTABLEDATA":
+    return {posts: [...action.payload]}
     default:
       return state
   }

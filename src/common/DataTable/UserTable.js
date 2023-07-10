@@ -2,6 +2,7 @@ import React from "react"
 import MUIDataTable from "mui-datatables"
 
 const UserTable = () => {
+    
   const columns = [
     {
       name: "name",
@@ -73,6 +74,7 @@ const UserTable = () => {
 
   const options = {
     filterType: "checkbox",
+   
   }
 
   return (

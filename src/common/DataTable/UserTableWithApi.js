@@ -1,90 +1,98 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import MUIDataTable from "mui-datatables"
+import { useDispatch, useSelector } from "react-redux"
+import axios from "axios"
+import { TableData } from "../../Redux/Action/ProductAction"
+import { Link, useNavigate, useParams } from "react-router-dom"
 
 const UserTableWithApi = () => {
+    const [responsive, setResponsive] = useState('simple');
+    const navigate = useNavigate();
+    const TableDataSelector = useSelector((state) => state.TableDataReducer.posts)
+  const dispatch = useDispatch()
+  console.log("i am selector", TableDataSelector)
+  const handleClick = (rowData) => {
+    navigate(`${rowData[0]}`)
+  }
+
+  useEffect(() => {
+    const apiData = async () => {
+      const data = await axios.get("https://jsonplaceholder.typicode.com/posts")
+      console.log(data.data)
+      dispatch(TableData(data.data))
+    }
+    apiData()
+  }, [])
+
   const columns = [
     {
-      name: "name",
-      label: "Name",
+      name: "id",
+      label: "Id",
       options: {
         filter: true,
         sort: true,
       },
     },
     {
-      name: "company",
-      label: "Company",
+      name: "title",
+      label: "Title",
       options: {
         filter: true,
-        sort: false,
+        sort: true,
       },
     },
     {
-      name: "city",
-      label: "City",
+      name: "body",
+      label: "Description",
       options: {
         filter: true,
-        sort: false,
-      },
+        sort: true,
+        // customBodyRenderLite: (value) => {    
+        //     return (
+        //        <>
+                  
+        //              <Link to={`${value}`} >{value}</Link>
+        //         </>
+        //      )
+        //   }
+        }
     },
     {
-      name: "state",
-      label: "State",
+      name: "userId",
+      label: "User Id",
       options: {
         filter: true,
-        sort: false,
+        sort: true,
+        customBodyRender: (value, tableMeta, dataIndex, rowIndex) => {
+            return (
+              <>
+              <button onClick={() => { console.log("value", value, "table", tableMeta.rowData[0]) }}>
+                Delete 
+              </button>
+              <Link to={`${tableMeta.rowData[0]}`}>data</Link>
+              </>
+            );
+          }
       },
     },
-  ]
-
-  const data = [
-    { name: "Joe James", company: "new Corp", city: "Yonkers", state: "NY" },
-    { name: "John Walsh", company: "Test Corp", city: "Hartford", state: "CT" },
-    { name: "Bob Herm", company: "Test Corp", city: "Tampa", state: "FL" },
-    { name: "Joe James", company: "new Corp", city: "Yonkers", state: "NY" },
-    { name: "John Walsh", company: "Test Corp", city: "Hartford", state: "CT" },
-    { name: "Bob Herm", company: "Test Corp", city: "Tampa", state: "FL" },
-    { name: "Joe James", company: "new Corp", city: "Yonkers", state: "NY" },
-    { name: "John Walsh", company: "Test Corp", city: "Hartford", state: "CT" },
-    { name: "Bob Herm", company: "Test Corp", city: "Tampa", state: "FL" },
-    { name: "Joe James", company: "new Corp", city: "Yonkers", state: "NY" },
-    { name: "John Walsh", company: "Test Corp", city: "Hartford", state: "CT" },
-    { name: "Bob Herm", company: "Test Corp", city: "Tampa", state: "FL" },
-    { name: "Joe James", company: "new Corp", city: "Yonkers", state: "NY" },
-    { name: "John Walsh", company: "Test Corp", city: "Hartford", state: "CT" },
-    { name: "Bob Herm", company: "Test Corp", city: "Tampa", state: "FL" },
-    { name: "Joe James", company: "new Corp", city: "Yonkers", state: "NY" },
-    { name: "John Walsh", company: "Test Corp", city: "Hartford", state: "CT" },
-    { name: "Bob Herm", company: "Test Corp", city: "Tampa", state: "FL" },
-    { name: "Joe James", company: "new Corp", city: "Yonkers", state: "NY" },
-    { name: "John Walsh", company: "Test Corp", city: "Hartford", state: "CT" },
-    { name: "Bob Herm", company: "Test Corp", city: "Tampa", state: "FL" },
-    { name: "Joe James", company: "new Corp", city: "Yonkers", state: "NY" },
-    { name: "John Walsh", company: "Test Corp", city: "Hartford", state: "CT" },
-    { name: "Bob Herm", company: "Test Corp", city: "Tampa", state: "FL" },
-   
-    {
-      name: "James Houston",
-      company: "Test Corp",
-      city: "Dallas",
-      state: "TX",
-    },
+    
   ]
 
   const options = {
     filterType: "checkbox",
+    responsive,
   }
 
   return (
     <div>
       <h1>datatables</h1>
       <div className="container">
-      <MUIDataTable
-        title={"Employee List"}
-        data={data}
-        columns={columns}
-        options={options}
-      />
+        <MUIDataTable
+          title={"Employee List"}
+          data={TableDataSelector}
+          columns={columns}
+          options={options}
+        />
       </div>
     </div>
   )
