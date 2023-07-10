@@ -4,6 +4,7 @@ import Toaster from './common/Toast/Toaster';
 import CounterExample from './Counter/CounterExample';
 import AllProducts from './Products/AllProducts';
 import SingleProduct from './Products/SingleProduct';
+import UserTable from './common/DataTable/UserTable';
 
 function App() {
   return (
@@ -15,6 +16,8 @@ function App() {
         <Route path="/counter" element={<CounterExample />}/>
         <Route path="/products" element={<AllProducts />}/>
         <Route path="/products/:id" element={<SingleProduct />}/>
+        <Route path="/table" element={<UserTable />}/>
+      
       </Routes>
     </div>
   );
