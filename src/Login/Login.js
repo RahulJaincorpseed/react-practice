@@ -29,7 +29,7 @@ const Login = () => {
             console.log(data, data.token)
             dispatch(loginUserAction(data))
             localStorage.setItem("token",  data.token);     
-            navigate("/pro")
+            // navigate("/pro")
         });
     }
     

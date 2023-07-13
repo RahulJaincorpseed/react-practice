@@ -7,9 +7,9 @@ export const UserReducer = (state=initialState, action) =>{
         case "LOGIN_USER":
             {
             //     return{...state , ...action.payload }
-            const data2 = state.login
-            const data = {...data2, ...action.payload}
-            return data
+            let data2 = state.login
+            state.login = {...data2, ...action.payload}
+            return state.login
         }
         default:
             return{state}
