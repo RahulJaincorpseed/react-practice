@@ -1,10 +1,16 @@
 import React from "react";
 import { useNavigate } from "react-router";
 import { useCookies } from "react-cookie"
+import { useDispatch, useSelector } from "react-redux";
+import { loginUserAction } from "../Redux/Action/UserAction";
 
 const Login = () => {
     const navigate = useNavigate();
     const [cookies, setCookie] = useCookies(['user']);
+    const loginSelector = useSelector(state => state.UserReducer);
+    const dispatch = useDispatch();
+
+    console.log("login ", loginSelector);
 
    
     const option = {
@@ -22,10 +28,10 @@ const Login = () => {
           .then(res => res.json())
           .then(data => {
             console.log(data, data.token)
+            dispatch(loginUserAction(data))
             localStorage.setItem("token",  data.token);
             setCookie('token', data.token, { path: '/pro' });
-            navigate('/pro')
-            window.location.reload()
+          
         });
     }
     
