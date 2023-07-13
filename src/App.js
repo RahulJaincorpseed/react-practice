@@ -9,6 +9,7 @@ import UserTableWithApi from './common/DataTable/UserTableWithApi';
 import Login from './Login/Login';
 import GetProducts from './Login/GetProducts';
 import JokeGenerater from './common/JokeGenerater';
+import StateMistake from './BegineerMistake/StateMistake';
 
 function App() {
   return (
@@ -26,7 +27,7 @@ function App() {
         <Route path="/login" element={<Login />}/>
         <Route path="/pro" element={<GetProducts />}/>
         <Route path="/joke" element={<JokeGenerater />}/>
-        
+        <Route path="/mis1" element={<StateMistake />}/>
       </Routes>
     </div>
   );
