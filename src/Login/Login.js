@@ -31,7 +31,6 @@ const Login = () => {
             dispatch(loginUserAction(data))
             localStorage.setItem("token",  data.token);
             setCookie('token', data.token, { path: '/pro' });
-          
         });
     }
     
