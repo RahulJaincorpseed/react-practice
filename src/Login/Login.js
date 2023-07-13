@@ -6,13 +6,12 @@ import { loginUserAction } from "../Redux/Action/UserAction";
 
 const Login = () => {
     const navigate = useNavigate();
-    const [cookies, setCookie] = useCookies(['user']);
     const loginSelector = useSelector(state => state.UserReducer);
     const dispatch = useDispatch();
 
     console.log("login ", loginSelector);
 
-   
+
     const option = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -29,8 +28,8 @@ const Login = () => {
           .then(data => {
             console.log(data, data.token)
             dispatch(loginUserAction(data))
-            localStorage.setItem("token",  data.token);
-            setCookie('token', data.token, { path: '/pro' });
+            localStorage.setItem("token",  data.token);     
+            navigate("/pro")
         });
     }
     
