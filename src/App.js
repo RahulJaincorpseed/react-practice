@@ -11,6 +11,7 @@ import GetProducts from './Login/GetProducts';
 import JokeGenerater from './common/JokeGenerater';
 import StateMistake from './BegineerMistake/StateMistake';
 import StateMisatkeTwo from './BegineerMistake/StateMisatkeTwo';
+import StateMistakeThree from './BegineerMistake/StateMistakeThree';
 
 function App() {
   return (
@@ -30,6 +31,8 @@ function App() {
         <Route path="/joke" element={<JokeGenerater />}/>
         <Route path="/mis1" element={<StateMistake />}/>
         <Route path="/mis2" element={<StateMisatkeTwo />}/>
+        <Route path="/mis3" element={<StateMistakeThree />}/>
+    
       </Routes>
     </div>
   );
