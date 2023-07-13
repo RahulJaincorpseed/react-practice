@@ -8,6 +8,7 @@ import UserTable from './common/DataTable/UserTable';
 import UserTableWithApi from './common/DataTable/UserTableWithApi';
 import Login from './Login/Login';
 import GetProducts from './Login/GetProducts';
+import JokeGenerater from './common/JokeGenerater';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/tab/:id" element={<div>single page</div>}/>
         <Route path="/login" element={<Login />}/>
         <Route path="/pro" element={<GetProducts />}/>
+        <Route path="/joke" element={<JokeGenerater />}/>
         
       </Routes>
     </div>
