@@ -7,7 +7,7 @@ import { Link } from "react-router-dom"
 
 const DataTableFucntion = () => {
     const [Loading, setLoading] = useState(true);
-  const TableSelector = useSelector((data) => data.DataTableReducer?.allData)
+  const TableSelector = useSelector((data) => data.DataTableReducer?.listData)
   const dispatch = useDispatch()
 
   console.log("selector", TableSelector)
@@ -64,9 +64,25 @@ const DataTableFucntion = () => {
         //    console.log(tableMeta.rowData[0]);
         return ( <Link to={`/tab/${tableMeta.rowData[0]}`} className="btn btn-primary">data</Link>)
           },
-        onRowsSelect : (curRowSelected, allRowsSelected) => {
-            console.log(curRowSelected)
-        }
+        // onRowsSelect : (curRowSelected, allRowsSelected) => {
+        //     console.log(curRowSelected)
+        // }
+        },
+      },
+
+      {
+        name: "add",
+        label: "Add",
+        options: {
+          filter: true,
+          sort: false,
+          customBodyRender: (value, tableMeta) => {
+        //    console.log(tableMeta.rowData[0]);
+        return ( <Link to={`/add`} className="btn btn-primary">Add</Link>)
+          },
+        // onRowsSelect : (curRowSelected, allRowsSelected) => {
+        //     console.log(curRowSelected)
+        // }
         },
       },
   ]

@@ -1,13 +1,13 @@
 const initialState = {
-    alldata: []
+    listData: []
 }
 
 export const DataTableReducer = (state=initialState, action) =>{
     switch (action.type) {
         case "ALLTABLEDATA":
            {
-            state = state.state.allData
-            state = {...state, allData:action.payload}
+            state = state?.state?.listData
+            state = {...state, listData:action?.payload}
             return state;
            }
         default:
