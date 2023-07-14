@@ -12,6 +12,7 @@ import JokeGenerater from './common/JokeGenerater';
 import StateMistake from './BegineerMistake/StateMistake';
 import StateMisatkeTwo from './BegineerMistake/StateMisatkeTwo';
 import StateMistakeThree from './BegineerMistake/StateMistakeThree';
+import DataTableFucntion from './DataTable/DataTableFucntion';
 
 function App() {
   return (
@@ -32,7 +33,8 @@ function App() {
         <Route path="/mis1" element={<StateMistake />}/>
         <Route path="/mis2" element={<StateMisatkeTwo />}/>
         <Route path="/mis3" element={<StateMistakeThree />}/>
-    
+        <Route path="/tables" element={<DataTableFucntion />}/>
+        
       </Routes>
     </div>
   );
