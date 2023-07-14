@@ -4,7 +4,7 @@ import { allProductAction } from "../Redux/Action/ProductAction"
 import { Link } from "react-router-dom"
 
 const AllProducts = () => {
-  const allProductsAdd = useSelector((state) => state.productReducerExample)
+  const allProductsAdd = useSelector((state) => state.productReducerExample.allProduct)
   console.log("products data redux data", allProductsAdd)
   const dispatch = useDispatch()
 

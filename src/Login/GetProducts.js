@@ -4,8 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 const GetProducts = () => {
   const loginSelector = useSelector(state => state.UserReducer);
   
-  console.log("firstname is ", loginSelector.firstName);
-  console.log("token is ", loginSelector.token);
+  console.log("firstname is ", loginSelector);
+  console.log("token is ", loginSelector);
 
   
 

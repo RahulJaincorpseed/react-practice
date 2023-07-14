@@ -11,16 +11,18 @@ export const counterReducerExample = (state = initialState, action) => {
   }
 }
 
-const productState = [];
+const productState = {
+  allProduct: [],
+  singleProduct: {},
+};
 
 export const productReducerExample = (state = productState, action) => {
   switch (action.type) {
     case "GETALLPRODUCTS":
-      let data = [...state, ...action.payload]
+      let data = {...state, allProduct: action.payload}
       return data
     case "GETSINGLEPRODUCT":
-      let itemData = action.payload;
-       return itemData;   
+      return {...state, singleProduct: action.payload}
     default:
       return state
   }

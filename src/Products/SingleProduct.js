@@ -2,10 +2,11 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
 import { singleProductAction } from "../Redux/Action/ProductAction";
+import { Link } from "react-router-dom";
 
 const SingleProduct = () => {
     const pro = useParams();
-    const  singleProductSelector = useSelector(state => state.productReducerExample);
+    const  singleProductSelector = useSelector(state => state.productReducerExample.singleProduct);
    
     const dispatch = useDispatch();
 
@@ -31,6 +32,7 @@ const SingleProduct = () => {
                     <p>{price}</p>
                     <p>{description}</p>   
         </div>
+        <Link to="/login">Login</Link>
          </div>
   )
 };

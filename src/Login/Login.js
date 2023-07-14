@@ -6,10 +6,15 @@ import { loginUserAction } from "../Redux/Action/UserAction";
 
 const Login = () => {
     const navigate = useNavigate();
-    const loginSelector = useSelector(state => state.UserReducer);
+    const loginSelector = useSelector(state1 => state1.UserReducer.login);
+    const allProductsAdd = useSelector((state) => state.productReducerExample)
+
+  
     const dispatch = useDispatch();
 
-    console.log("login ", loginSelector);
+    console.log("i am  dispatch", dispatch);
+
+    console.log("login selector", loginSelector);
 
 
     const option = {
@@ -29,7 +34,7 @@ const Login = () => {
             console.log(data, data.token)
             dispatch(loginUserAction(data))
             localStorage.setItem("token",  data.token);     
-            navigate("/pro")
+            // navigate("/pro")
         });
     }
     

@@ -1,15 +1,15 @@
 const initialState = {
-    login: {},
+    login: {}
 }
 
 export const UserReducer = (state=initialState, action) =>{
     switch (action.type) {
         case "LOGIN_USER":
             {
-            //     return{...state , ...action.payload }
-            const data2 = state.login
-            const data = {...data2, ...action.payload}
-            return data
+                state = state.state.login
+                state = {...state, login:action.payload}
+                return state;
+                // return {...state, login: action.payload}
         }
         default:
             return{state}
