@@ -6,13 +6,13 @@ function UseRandomJoke() {
     useEffect(() => {
       const fetchJoke = async () =>
         await fetch(
-          `https://official-joke-api.appspot.com/jokes/random`
+          `https://official-joke-api.appspot.com/jokes/random` 
         ).then(res=>res.json())
         .then(data => {setJoke(data)});
         fetchJoke();
     }, [])
     return joke;
-  
+    
 }
 
 export default UseRandomJoke;
