@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from "react"
 import UseRandomJoke from "../hook/UseRandomJoke"
 
 const JokeGenerater = () => {

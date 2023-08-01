@@ -13,6 +13,8 @@ import StateMistake from './BegineerMistake/StateMistake';
 import StateMisatkeTwo from './BegineerMistake/StateMisatkeTwo';
 import StateMistakeThree from './BegineerMistake/StateMistakeThree';
 import DataTableFucntion from './DataTable/DataTableFucntion';
+import UserLogin from './Custom/UserLogin';
+import AllProductsData from './Products/AllProductsData';
 
 function App() {
   return (
@@ -34,6 +36,8 @@ function App() {
         <Route path="/mis2" element={<StateMisatkeTwo />}/>
         <Route path="/mis3" element={<StateMistakeThree />}/>
         <Route path="/tables" element={<DataTableFucntion />}/>
+        <Route path="/try" element={<UserLogin />}/>
+        
         
       </Routes>
     </div>

@@ -3,11 +3,10 @@ import MUIDataTable from "mui-datatables"
 import { useDispatch, useSelector } from "react-redux"
 import axios from "axios"
 import { TableData } from "../../Redux/Action/ProductAction"
-import { Link, useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 const UserTableWithApi = () => {
     const [responsive, setResponsive] = useState('simple');
-    const navigate = useNavigate();
     const TableDataSelector = useSelector((state) => state.TableDataReducer.posts)
   const dispatch = useDispatch()
   console.log("i am selector", TableDataSelector)
@@ -17,6 +16,7 @@ const UserTableWithApi = () => {
       const data = await axios.get("https://jsonplaceholder.typicode.com/posts")
       console.log(data.data)
       dispatch(TableData(data.data))
+      setResponsive("true")
     }
     apiData()
   }, [])
